@@ -3,6 +3,7 @@ package cell
 
 import (
 	"fmt"
+	"strings"
 )
 
 const (
@@ -12,6 +13,15 @@ const (
 type Stringer interface {
 	String() string
 }
+
+func Compact(c *Cell) string {
+	if c == nil {
+		return "nil"
+	}
+	s := c.String()
+	return strings.Replace(strings.Replace(strings.Replace(s,"\n","",-1),"\t","",-1)," ","",-1)
+}
+
 
 /* Cell struct for placing two atoms into */
 type Cell struct {

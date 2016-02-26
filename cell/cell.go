@@ -79,7 +79,7 @@ func (c *Cell) IsValue() bool {
 	return (c.IsList() == false)
 }
 
-func (c *Cell) Value() interface{} {
+func (c *Cell) Value() Stringer {
 	return c.h
 }
 
@@ -103,7 +103,15 @@ func (c *Cell) Next() *Cell {
 	return nil
 }
 
-func New(h,t Stringer) *Cell {
-	c := Cell{h:h,t:t}
-	return &c
+func Open(cell *Cell) *Cell {
+	return &Cell{h:cell,t:nil}
 }
+
+func New(h,t Stringer) *Cell {
+	return &Cell{h:h,t:t}
+}
+
+
+
+
+

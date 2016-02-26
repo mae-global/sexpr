@@ -5,7 +5,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 	"testing"
 	
-	"github.com/mae.global/sexpr/cell"
+	"github.com/mae-global/sexpr/cell"
 )
 
 var (
@@ -27,7 +27,7 @@ func Test_Simple(t *testing.T) {
 		root,err := ParseString("(+ 1 2)",config)
 		So(err,ShouldBeNil)
 		So(root,ShouldNotBeNil)
-		So(cell.Compact(root),ShouldEqual,"cell{++cell{1+cell{2+empty}}}")
+		So(cell.Compact(root),ShouldEqual,"cell{cell{++cell{1+cell{2+empty}}}+empty}")
 	})
 }
 
@@ -39,7 +39,7 @@ func Test_Complex(t *testing.T) {
 		So(err,ShouldBeNil)
 		So(root,ShouldNotBeNil)
 
-		So(cell.Compact(root),ShouldEqual,"cell{-+cell{cell{++cell{1+cell{2+empty}}}+cell{cell{++cell{1+cell{2+empty}}}+empty}}}")
+		So(cell.Compact(root),ShouldEqual,"cell{cell{-+cell{cell{++cell{1+cell{2+empty}}}+cell{cell{++cell{1+cell{2+empty}}}+empty}}}+empty}")
 	})
 }
 
@@ -51,6 +51,6 @@ func Test_Comments(t *testing.T) {
 		So(err,ShouldBeNil)
 		So(root,ShouldNotBeNil)
 
-		So(cell.Compact(root),ShouldEqual,"cell{concat+cell{\"hello\"+cell{\"Alice\"+empty}}}")
+		So(cell.Compact(root),ShouldEqual,"cell{cell{concat+cell{\"hello\"+cell{\"Alice\"+empty}}}+empty}")
 	})
 }

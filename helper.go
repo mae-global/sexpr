@@ -2,7 +2,7 @@
 package sexpr
 
 import (
-	"github.com/mae.global/sexpr/cell"
+	"github.com/mae-global/sexpr/cell"
 	"fmt"
 )
 

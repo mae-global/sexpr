@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/mae.global/sexpr/cell"
+	"github.com/mae-global/sexpr/cell"
 )
 
 
@@ -137,7 +137,7 @@ func Parse(reader io.Reader,config *Configuration) (*cell.Cell,error) {
 		return nil,ErrNoSource
 	}
 
-	return root,nil
+	return cell.Open(root),nil
 }
 
 func ParseString(s string,config *Configuration) (*cell.Cell,error) {

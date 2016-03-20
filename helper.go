@@ -31,20 +31,20 @@ type helper struct {
 func (h *helper) Push(start int) error {
 
 	if len(h.stack) == 0 {
-		if h.verbose {
-			fmt.Printf("Push\n") /* FIXME, change to logger */
-		}
+		/*if h.verbose {
+			fmt.Printf("Push\n") 
+		}*/
 		
 		list := cell.New(nil,nil)
 		h.stack = append(h.stack,list)
 		return nil
 	}
 
-	c := h.stack[len(h.stack) - 1]
+	/*c := h.stack[len(h.stack) - 1]
 
 	if h.verbose {
 		fmt.Printf("Push\tempty=%v\n",c.IsEmpty())
-	}
+	}*/
 
 	list := cell.New(nil,nil)
 	h.stack = append(h.stack,list)
@@ -52,10 +52,10 @@ func (h *helper) Push(start int) error {
 }
 
 func (h *helper) Pop(finish int) error {
-	
+	/*
 	if h.verbose {
 		fmt.Printf("Pop\n")
-	}
+	}*/
 
 	if len(h.stack) == 1 {
 		h.root = h.stack[len(h.stack) - 1]

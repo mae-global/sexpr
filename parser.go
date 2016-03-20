@@ -11,7 +11,7 @@ import (
 
 
 const (
-	DefaultBufferSize = 128
+	DefaultBufferSize = 512
 )
 
 var (
@@ -74,9 +74,10 @@ func Parse(reader io.Reader,config *Configuration) (*cell.Cell,error) {
 			}
 
 			if sc == ";" && !instr {
+				/*
 				if verbose {
 					fmt.Printf("\tcomment,s=%d\n",s)
-				}
+				}*/
 				incom = true
 			} else if sc == "(" && !instr {
 				if err := h.Push(idx); err != nil {
@@ -87,9 +88,10 @@ func Parse(reader io.Reader,config *Configuration) (*cell.Cell,error) {
 					if err := h.Append(s,f,lit,word); err != nil {
 						return nil,err
 					}
+					/*
 					if verbose {
 						fmt.Printf("\ts=%d,f=%d,literal=%v [%s]\n",s,f,lit,word)
-					}
+					}*/
 					word = cell.Empty
 					s = -1; f = -1; lit = false
 				}
@@ -102,9 +104,10 @@ func Parse(reader io.Reader,config *Configuration) (*cell.Cell,error) {
 					if err := h.Append(s,f,lit,word); err != nil {
 						return nil,err
 					}
+					/*
 					if verbose {
 						fmt.Printf("\ts=%d,f=%d,literal=%v [%s]\n",s,f,lit,word)
-					}
+					}*/
 					word = cell.Empty
 					s = -1; f = -1; lit = false
 				}

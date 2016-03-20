@@ -83,6 +83,21 @@ func (c *Cell) Value() Stringer {
 	return c.h
 }
 
+func (c *Cell) ToSValue() (string,bool) {
+	ok := c.IsValue()
+	if !ok {
+		return "",false
+	}
+	return c.h.String(),ok
+}
+
+func (c *Cell) SValue() string {
+	if c.IsValue() {
+		return c.h.String()
+	}
+	return ""
+}
+
 func (c *Cell) List() *Cell {
 	if c.h == nil {
 		return nil

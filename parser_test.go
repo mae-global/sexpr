@@ -54,3 +54,41 @@ func Test_Comments(t *testing.T) {
 		So(cell.Compact(root),ShouldEqual,"cell{cell{concat+cell{\"hello\"+cell{\"Alice\"+empty}}}+empty}")
 	})
 }
+
+//go test -bench=.
+
+func Benchmark_Simple(b *testing.B) {
+
+	test := "(+ 1 2)"
+
+	for i := 0; i < b.N; i++ {
+		if _,err := ParseString(test,nil); err != nil {
+			b.Error(err)
+		}
+	}
+}
+
+func Benchmark_Medium(b *testing.B) {
+
+	test := "((concat (\"Alice\" \"in Wonderland\")) (- (+ 9 2 3 4) (+ 2 3 4 (* 2 3))))"
+
+	for i := 0; i < b.N; i++ {
+		if _,err := ParseString(test,nil); err != nil {
+			b.Error(err)
+		}
+	}
+}
+
+func Benchmark_Complex(b *testing.B) {
+
+	test := "(card 88745ec816d24fc5 5 (attributes (attribute \"Alice\" (string \"in wonderland\"))(attribute \"List of Things\" (delimited-string \",\" \"Butterfly,Rabbit,Hamster\"))(attribute \"time\" (time \"11:39\"))))"
+
+	for i := 0; i < b.N; i++ {
+		if _,err := ParseString(test,nil); err != nil {
+			b.Error(err)
+		}
+	}
+}
+
+
+		

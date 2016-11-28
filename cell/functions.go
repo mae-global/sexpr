@@ -1,4 +1,4 @@
-/* mae.global/sexpr/cell/functions.go */
+/* pinhole/internal/sexpr/cell/functions.go */
 package cell
 
 func Cons(a,b Stringer) *Cell {
@@ -46,6 +46,10 @@ func List(atoms... Stringer) *Cell {
 	next := false
 	count := 0
 	for _,v := range atoms {
+		if a := v.String(); len(a) == 0 {
+			continue
+		}
+
 		if next {
 			count++
 			n := New(nil,nil)

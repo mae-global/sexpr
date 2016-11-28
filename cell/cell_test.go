@@ -1,4 +1,4 @@
-/* mae.global/sexpr/cell/cell_test.go */
+/* pinhole/internal/sexpr/cell/cell_test.go */
 package cell
 
 import (

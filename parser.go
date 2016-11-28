@@ -1,4 +1,4 @@
-/* mae.global/sexpr/parser.go */
+/* pinhole/internal/sexpr/parser.go */
 package sexpr
 
 import (
@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/mae-global/sexpr/cell"
+	"pinhole/internal/sexpr/cell"
 )
 
 

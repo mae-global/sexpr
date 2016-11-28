@@ -1,8 +1,8 @@
-/* mae.global/sexpr/helper.go */
+/* pinhole/internal/sexpr/helper.go */
 package sexpr
 
 import (
-	"github.com/mae-global/sexpr/cell"
+	"pinhole/internal/sexpr/cell"
 	"fmt"
 )
 

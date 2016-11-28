@@ -1,4 +1,4 @@
-/* mae.global/sexpr/outputer_test.go */
+/* pinhole/internal/outputer_test.go */
 package sexpr
 
 import (

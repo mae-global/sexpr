@@ -1,11 +1,11 @@
-/* mae.global/sexpr/parser_test.go */
+/* pinhole/internal/sexpr/parser_test.go */
 package sexpr
 
 import (
 	. "github.com/smartystreets/goconvey/convey"
 	"testing"
 	
-	"github.com/mae-global/sexpr/cell"
+	"pinhole/internal/sexpr/cell"
 )
 
 var (

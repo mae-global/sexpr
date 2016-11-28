@@ -1,4 +1,4 @@
-/* mae.global/sexpr/cell/cell.go */
+/* pinhole/internal/sexpr/cell/cell.go */
 package cell
 
 import (
@@ -31,7 +31,10 @@ type Cell struct {
 }
 
 func (c *Cell) String() string {
-	
+	if c == nil {
+		return "nil"
+	}
+
 	h := "empty"
 	t := "empty" 
 	
